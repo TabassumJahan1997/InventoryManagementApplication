@@ -1,0 +1,73 @@
+<!-- <div class=" rounded text-center m-auto p-2 mb-3 d-flex justify-content-center"  style="background-color: #f2e6ff;">
+  <mat-card-title class="mt-2 display-5">All Invoices</mat-card-title>
+  <mat-card-subtitle>Invoice List</mat-card-subtitle> -->
+<!-- </div> -->
+
+<div class="d-flex justify-content-center mt-3 mb-3 p-3"  style="background-color: #33334d;">
+
+  <mat-card-title class="display-5 text-white">All Invoices</mat-card-title>
+
+</div>
+
+
+<mat-card class="mat-elevation-z8 col-10 m-auto mt-5 shadow">
+
+    <mat-card-content class="row">
+
+      <div class="d-flex justify-content-center mb-3">
+        <a mat-raised-button color="primary" [routerLink]="['/invoice-create']">
+          Create Invoice
+        </a>
+      </div>
+
+      <mat-table [dataSource]="datasource" matSort class="col-10 m-auto shadow rounded">
+        <ng-container matColumnDef="customerName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.customerName}}</mat-cell>  
+        </ng-container>
+
+        <ng-container matColumnDef="orderDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.orderDate|date:'yyyy-MM-dd'}}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="deliveryDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Delivery Date</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.deliveryDate|date:'yyyy-MM-dd'}}</mat-cell> 
+        </ng-container>
+
+        <ng-container matColumnDef="orderPrice">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Order Total</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.orderPrice}}</mat-cell> 
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef  mat-sort-header>Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getStatus(element.status)}}</mat-cell> 
+        </ng-container>
+
+        <ng-container matColumnDef="details">
+          <mat-header-cell *matHeaderCellDef >View Details</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a title="view details" [routerLink]="['/invoice-details', element.orderID]"><mat-icon>info</mat-icon></a> 
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef >...</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a [routerLink]="['/invoice-edit', element.orderID]"><mat-icon>edit</mat-icon></a>
+            <button mat-icon-button (click)="confirmDelete(element)"><mat-icon>delete</mat-icon></button>
+          </mat-cell> 
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnList;"></mat-row>
+  
+      </mat-table>
+
+      <mat-paginator class="col-10 m-auto mt-3" [pageSizeOptions]="[5, 10, 20, 40]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  
+    </mat-card-content>
+  </mat-card>
+  

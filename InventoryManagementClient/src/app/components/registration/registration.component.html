@@ -1,0 +1,74 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 m-auto">
+             
+                <div class="mt-4 m-auto">
+
+                    <div class="d-flex justify-content-center">
+                        <h1 class=" text-center mt-2">Sign Up</h1>
+                    </div>
+
+
+                    <nav class="navbar p-4 shadow-lg rounded mb-5 mt-5" style="background-color: #e6f2ff;">
+
+                      <!-- <form [formGroup]="signupForm" class="col-12 p-1"> -->
+                        <form [formGroup]="signupForm" class="col-12 p-3">
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>First Name</mat-label>
+                          <input matInput placeholder="First Name" formControlName="firstName" required>
+                          <mat-error *ngIf="signupForm.controls['firstName'].invalid && signupForm.controls['firstName'].touched">
+                            First Name is required
+                          </mat-error>
+                        </mat-form-field>
+  
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>Last Name</mat-label>
+                          <input matInput placeholder="Last Name" formControlName="lastName" required>
+                          <mat-error *ngIf="signupForm.controls['lastName'].invalid && signupForm.controls['lastName'].touched">
+                            Last Name is required
+                          </mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>Email</mat-label>
+                          <input matInput type="email" placeholder="Email" formControlName="email" required>
+                          <mat-error *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+                            Email is required
+                          </mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>Username</mat-label>
+                          <input matInput placeholder="Username" formControlName="userName" required>
+                          <mat-error *ngIf="signupForm.controls['userName'].invalid && signupForm.controls['userName'].touched">
+                            User Name is required
+                          </mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>Password</mat-label>
+                          <input matInput type="password" placeholder="Password" formControlName="password" required>
+                          <mat-error *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+                            Password is required
+                          </mat-error>
+                        </mat-form-field>
+                        
+                        <button (click)="onSubmit()" mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid" class="shadow-lg">Sign up</button>
+
+                    </form>
+
+                    <div class="p-2 text-center col text-muted">
+                      Already have account?
+                      <a routerLink="/login">Login</a>
+                    </div>
+                                            
+                    </nav>
+                </div>
+
+    
+            </div>
+        </div>
+    </div>
+    
+</div>

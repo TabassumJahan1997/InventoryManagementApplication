@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\393bfc54-61e8-41c7-9ab1-074a3535040d.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\393bfc54-61e8-41c7-9ab1-074a3535040d.jpg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\750b8a54-836d-41eb-bb3f-cf6bb99b3b40.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\750b8a54-836d-41eb-bb3f-cf6bb99b3b40.jpeg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\7d1ef2f7-81f3-4cf4-967d-7e56f2acb572.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\7d1ef2f7-81f3-4cf4-967d-7e56f2acb572.jpeg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\81dcead3-d0ed-4a95-9277-9d1bf4b3fe00.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\81dcead3-d0ed-4a95-9277-9d1bf4b3fe00.jpg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\9a4ffae8-95a9-494a-ab0f-26d5767c5529.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\9a4ffae8-95a9-494a-ab0f-26d5767c5529.jpeg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\bd0c8acc-a7cc-4813-b2ca-5d6662ed818e.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\bd0c8acc-a7cc-4813-b2ca-5d6662ed818e.jpeg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\f12211f9-cab9-4cda-b26f-4d50de04fb4c.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\f12211f9-cab9-4cda-b26f-4d50de04fb4c.jpg"
+    },
+    {
+      "Id": "E:\\InventoryManagementApplication\\InventoryManagementAPI\\InventoryManagementAPI\\wwwroot\\Pictures\\f8a9066c-c6ab-487c-8947-e7599644caae.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\f8a9066c-c6ab-487c-8947-e7599644caae.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.InventoryManagementAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.InventoryManagementAPI.props",
+      "PackagePath": "build\\InventoryManagementAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.InventoryManagementAPI.props",
+      "PackagePath": "buildMultiTargeting\\InventoryManagementAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.InventoryManagementAPI.props",
+      "PackagePath": "buildTransitive\\InventoryManagementAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center mt-3 mb-3 p-3"  style="background-color: #33334d;">
+
+  <mat-card-title class="display-5 text-white">Create Invoice</mat-card-title>
+
+</div>
+
+<mat-card class="mat-elevation-z3 col-8 m-auto mt-3">
+    <mat-card-header>
+
+    </mat-card-header>
+    <mat-card-content class="mt-5">
+  
+      <form [formGroup]="invoiceForm" class="form-container col-10 m-auto" (ngSubmit)="saveInvoice()">
+
+        <mat-form-field appearance="fill" class="f-w">
+          <mat-label>Customer</mat-label>
+          <mat-select formControlName="customerID">
+            <mat-option *ngFor="let op of customers" [value]="op.customerID">{{op.customerName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="invoiceForm.controls['customerID'].hasError('required')">
+            <strong>
+              Customer
+              name
+            </strong> required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="f-w">
+          <mat-label>Order Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="orderDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="invoiceForm.controls['orderDate'].hasError('required')">
+            <strong>Order date</strong>
+            required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="f-w">
+          <mat-label>Delivery Date</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="deliveryDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>  
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="f-w">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option *ngFor="let op of orderStatus" [value]="op.value">{{op.title}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="invoiceForm.controls['status'].hasError('required')">
+            <strong>Status</strong> is required
+          </mat-error>  
+        </mat-form-field>
+
+        <div class="f-w f-w-flex mb-2 mt-3">
+          <!-- <h4>Add Products</h4> -->
+          <!-- <button type="button" mat-icon-button (click)="addItem()"><mat-icon>add</mat-icon></button> -->
+          <button type="button" mat-raised-button (click)="addItem()">Add Products</button>
+        </div>
+
+        <ng-container formArrayName="orderItems">
+          <ng-container *ngFor="let p of orderItemsFormArray.controls; let i = index">
+            <div [formGroupName]="i" class="item-row">
+              <mat-form-field class="f-w" appearance="fill">
+                <mat-label>Product</mat-label>
+                <mat-select formControlName="productID">
+                  <mat-option *ngFor="let p of products" [value]="p.productID">{{p.productName}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="orderItemsFormArray.controls[i].get('productID')?.hasError('required')">Product id <strong>required</strong></mat-error>
+              </mat-form-field>
+              <mat-form-field class="f-w" appearance="fill">
+                <mat-label>Quantity</mat-label>
+                <input matInput
+                       formControlName="quantity">
+                <mat-error *ngIf="orderItemsFormArray.controls[i].get('quantity')?.hasError('required')">Product id <strong>required</strong></mat-error>
+              </mat-form-field>
+              <button type="button" mat-icon-button (click)="removeItem(i)"><mat-icon>delete</mat-icon></button>
+            </div>
+          </ng-container>
+        </ng-container>
+  
+        <div class="d-flex justify-content-between">
+          <button type="submit" mat-raised-button color="primary" [disabled]="invoiceForm.invalid">Save</button>
+          <a mat-raised-button [routerLink]="['/invoice-view']">Back to list</a>
+        </div>
+
+      </form>
+
+    </mat-card-content>
+<!-- 
+    <mat-card-actions>
+      <a mat-flat-button [routerLink]="['/invoice-view']">Back to list</a>
+    </mat-card-actions> -->
+    
+  </mat-card>
+  

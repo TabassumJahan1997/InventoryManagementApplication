@@ -1,0 +1,68 @@
+<!-- <div class="d-flex justify-content-center mt-3 shadow mb-3 pb-3 pt-4" style="background-color: #f2e6ff;">
+  <mat-card-title class="display-6" style="font-weight: 400;">Products</mat-card-title>
+</div> -->
+
+<div class="d-flex justify-content-center mt-3 mb-3 p-3"  style="background-color: #33334d;">
+
+  <mat-card-title class="display-5 text-white">Product List</mat-card-title>
+
+</div>
+
+<mat-card class="mat-elevation-z3 col-10 m-auto">
+
+  <mat-card-content>
+
+    <div class="d-flex justify-content-center mb-3">
+      <a mat-raised-button color="primary" class="shadow" [routerLink]="['/product-add']">Add New Product</a>
+      <!-- <input matInput  (ngModelChange)="filter()" placeholder="Search"> -->
+    </div>
+
+    <mat-table [dataSource]="dataSource" matSort  class="col-11 m-auto shadow round" >
+
+      <ng-container matColumnDef="picture">
+        <mat-header-cell *matHeaderCellDef>
+
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"><img class="circle-img" src="{{imagePath}}/{{element.picture}}" style="width: 40px;" /></mat-cell>
+        <!-- <mat-cell *matCellDef="let element"><img class="circle-img" src="http://localhost:5242/Pictures/{{element.picture}}" style="width: 40px;" /></mat-cell> -->
+        <!-- <mat-cell *matCellDef="let element"><img [src]="getPictureUrl(element.picture)" alt="{{ element.picture }}"></mat-cell> -->
+      </ng-container>
+
+      <ng-container matColumnDef="productName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.productName}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.price|number:'1.2-2'}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="isAvailable">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Available</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.isAvailable ? 'Yes': 'No'}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>View Details</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+         <a title="view details" [routerLink]="['/product-details', element.productID]"><mat-icon>info</mat-icon></a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>...</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a [routerLink]="['/product-edit', element.productID]"><mat-icon>edit</mat-icon></a>
+          <button [disabled]="!element.canDelete" mat-icon-button (click)="confirmDelete(element)"><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnList;"></mat-row>
+
+    </mat-table>
+    <mat-paginator class="col-11 m-auto mt-2" [pageSizeOptions]="[5, 10, 20, 40]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+  </mat-card-content>
+</mat-card>

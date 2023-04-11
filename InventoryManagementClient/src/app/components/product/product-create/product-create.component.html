@@ -1,0 +1,108 @@
+
+<!-- <div class="col-8 m-auto shadow mt-3">
+    <form class="form-container" [formGroup]="productForm" (submit)="insert()">
+
+        <div class="f-w">
+          <h3>Create new Product</h3>
+        </div>
+    
+        <mat-form-field class="f-w" appearance="fill">
+          <mat-label>Product Name</mat-label>
+          <input matInput formControlName="productName" />
+        </mat-form-field>
+    
+        <mat-form-field class="f-w" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" />
+        </mat-form-field> -->
+    
+        <!-- <mat-form-field appearance="fill" class="f-w">
+          <mat-label>Product Picture</mat-label>
+          <ngx-mat-file-input formControlName="picture" (change)="onChange($event)"></ngx-mat-file-input>
+          <mat-icon matSuffix>insert_photo</mat-icon>
+        </mat-form-field> -->
+    
+        <!-- <mat-form-field appearance="fill" class="f-w">
+            <mat-label>Product Picture</mat-label>
+            <input type="file" class="form-control"  formControlName="picture" (change)="onChange($event)">
+            <mat-icon matSuffix>insert_photo</mat-icon>
+        </mat-form-field> -->
+    
+        <!-- <div class="form-group mb-3"> -->
+            <!-- <label class="col-md-2 control-label" for="">Picture</label> -->
+            <!-- <div class="col-md-10">
+              <input type="file" formControlName="picture" class="form-control" (change)="onChange($event)">
+            </div>
+          </div>
+    
+        <div class="f-w">
+          <button [disabled]="productForm.invalid" mat-raised-button type="submit" color="accent"><mat-icon>save_alt</mat-icon> Save</button>
+        </div>
+    
+        <div class="f-w">
+          <a mat-flat-button [routerLink]="['/product-view']">Back to list</a>
+        </div>
+    
+      </form>
+</div> -->
+  
+
+<div class="d-flex justify-content-center mt-3 mb-3 p-3"  style="background-color: #33334d;">
+
+  <mat-card-title class="display-5 text-white">Add New Product</mat-card-title>
+
+</div>
+
+<mat-card class="mat-elevation-z3 col-8 m-auto mt-3">
+  
+  <mat-card-content class="mt-4 mb-4">
+
+    <form [formGroup]="productForm" class="form-container" (ngSubmit)="save()">
+      <mat-form-field appearance="fill" class="f-w mb-1">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="productName">
+        <mat-error *ngIf="productForm.controls['productName'].hasError('required')">
+          <strong>
+            Customer
+            name
+          </strong> required
+        </mat-error>
+
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="f-w mb-1">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price">
+        <mat-error *ngIf="productForm.controls['price'].hasError('required')"><strong>Price</strong> required</mat-error>
+
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="f-w mb-1">
+        <mat-label>Picture</mat-label>
+        <button mat-icon-button matPrefix (click)="f_input.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input type="text" readonly matInput formControlName="picture" />
+        <input type="file"
+               multiple
+               hidden
+               #f_input
+               (change)="onFileInputChange($event)" />
+        <mat-error>this field is required</mat-error>
+      </mat-form-field>
+      <div class="f-w mb-1">
+        <mat-checkbox formControlName="isAvailable" class="c-m">Available</mat-checkbox>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" mat-raised-button color="primary" [disabled]="productForm.invalid">Save</button>
+        <a mat-raised-button [routerLink]="['/product-view']">Back to list</a>
+      </div>
+    </form>
+
+
+  </mat-card-content>
+  <!-- <mat-card-actions>
+    <a mat-flat-button [routerLink]="['/product-view']">Back to list</a>
+  </mat-card-actions> -->
+</mat-card>
+
+  
+  

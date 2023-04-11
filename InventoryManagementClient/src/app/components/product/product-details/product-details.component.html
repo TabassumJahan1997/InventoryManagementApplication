@@ -1,0 +1,35 @@
+<!-- <h2>{{ product.productName }}</h2>
+<p>{{ product.description }}</p>
+<p>Price: ${{ product.price }}</p> -->
+
+<div class="d-flex justify-content-center mt-3 mb-3 p-3"  style="background-color: #33334d;">
+
+    <mat-card-title class="display-5 text-white">Product Details</mat-card-title>
+  
+  </div>
+
+<div class="col-6 m-auto" >
+    <div *ngIf="product" class="rounded row col-11 m-auto wrap shadow mt-4 mb-4 p-4">
+        <!-- <mat-card-title class="text-center">Product Details</mat-card-title> -->
+       <div class="col-8 m-auto shadow pt-3 pb-3" style="background-color: #f2e6ff;">
+        <div class="row mb-2">
+            <mat-label class="col-4">Product Name</mat-label>
+            <div class="col-3">{{product.productName}}</div>
+        </div>
+        <div class="row mb-2">
+            <mat-label class="col-4">Price</mat-label>
+            <div class="col-3">{{product.price}}</div>
+        </div>
+        <div class="row mb-2">
+            <mat-label class="col-4">Available ? </mat-label>
+            <div class="col-3">{{product.isAvailable ? 'Yes': 'No'}}</div>
+        </div>
+       </div>
+        <div class="row col-4 ml-3">
+            <img class="shadow rounded" style="width:180px; height:170px;" src="http://localhost:5242/Pictures/{{product.picture}}" alt="{{ product.picture }}">
+        </div>
+        <div>
+            <button type="button" mat-raised-button [routerLink]="['/product-view']">Back To List</button>
+        </div>
+    </div>
+</div>
